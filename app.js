@@ -62,7 +62,12 @@ app.post("/restaurants", (req, res) => {
 
 //瀏覽詳細
 app.get("/restaurants/:id", (req, res) => {
-  res.send("詳細id頁面");
+  console.log(req.params.id);
+  Restaurant.findById(req.params.id, (err, restaurant) => {
+    if (err) return console.log(err);
+    console.log(restaurant);
+    return res.render("detail", { restaurant });
+  });
 });
 //修改
 app.get("/restaurants/:id/edit", (req, res) => {

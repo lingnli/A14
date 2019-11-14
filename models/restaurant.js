@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const restaurantSchema = new Schema({
-  id: {
+  number: {
     type: Number
   },
   name: {
@@ -23,6 +23,9 @@ const restaurantSchema = new Schema({
     type: String
   },
   phone: {
+    type: String
+  },
+  google_map: {
     type: String
   },
   rating: {
