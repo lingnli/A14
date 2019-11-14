@@ -5,9 +5,14 @@ const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const Restaurant = require("./models/restaurant.js");
 
+//static file
+app.use(express.static("public"));
 //handlebars setting
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+//body-parser setting
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //mongoose setting
 mongoose.connect("mongodb://localhost/restaurant", {
@@ -24,7 +29,10 @@ db.once("open", () => {
 
 //route
 app.get("/", (req, res) => {
-  res.render("index");
+  Restaurant.find((err, restaurants) => {
+    if (err) return console.log(err);
+    res.render("index", { restaurants });
+  });
 });
 app.get("/restaurants", (req, res) => {
   res.redirect("/");
