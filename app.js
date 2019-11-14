@@ -37,14 +37,29 @@ app.get("/", (req, res) => {
 app.get("/restaurants", (req, res) => {
   res.redirect("/");
 });
+
 //新增頁面需排在瀏覽詳細頁面之前，否則再連接到/restaurants/new之前會先跑到/restaurants/:id
 //新增
 app.get("/restaurants/new", (req, res) => {
-  res.send("新增頁面");
+  res.render("new");
 });
-app.post("/restaurants/new", (req, res) => {
-  res.send("新增動作");
+app.post("/restaurants", (req, res) => {
+  console.log(req.body);
+  const restaurant = new Restaurant({
+    name: req.body.name,
+    rating: req.body.rating,
+    category: req.body.category,
+    image: req.body.image,
+    location: req.body.location,
+    phone: req.body.phone,
+    description: req.body.description
+  });
+  restaurant.save(err => {
+    if (err) return console.log(err);
+    res.redirect("/");
+  });
 });
+
 //瀏覽詳細
 app.get("/restaurants/:id", (req, res) => {
   res.send("詳細id頁面");
