@@ -1,3 +1,4 @@
+//新增restaurant model 並設定存入格式
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -17,8 +18,7 @@ const restaurantSchema = new Schema({
     type: String
   },
   image: {
-    type: String,
-    required: true
+    type: String
   },
   location: {
     type: String
