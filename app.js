@@ -69,16 +69,41 @@ app.get("/restaurants/:id", (req, res) => {
     return res.render("detail", { restaurant });
   });
 });
-//修改
+//修改：get 取得要修改的資料丟到修改頁面
 app.get("/restaurants/:id/edit", (req, res) => {
-  res.send("修改頁面");
+  Restaurant.findById(req.params.id, (err, restaurant) => {
+    if (err) return console.log(err);
+    return res.render("edit", { restaurant });
+  });
 });
+//送出修改動作：修改後的資料存到Restaurant model中
 app.post("/restaurants/:id/edit", (req, res) => {
-  res.send("修改動作");
+  console.log(req.body);
+  Restaurant.findById(req.params.id, (err, restaurant) => {
+    if (err) return console.log(err);
+    restaurant.name = req.body.name;
+    restaurant.rating = req.body.rating;
+    restaurant.category = req.body.category;
+    restaurant.image = req.body.image;
+    restaurant.location = req.body.location;
+    restaurant.phone = req.body.phone;
+    restaurant.description = req.body.description;
+
+    restaurant.save(err => {
+      if (err) return console.log(err);
+      res.redirect(`/restaurants/${req.params.id}`);
+    });
+  });
 });
-//刪除
+//刪除動作
 app.post("/restaurants/:id/delete", (req, res) => {
-  res.send("刪除id頁面動作");
+  Restaurant.findById(req.params.id, (err, restaurant) => {
+    if (err) return console.log(err);
+    restaurant.remove(err => {
+      if (err) return console.log(err);
+      return res.redirect("/");
+    });
+  });
 });
 
 app.listen(3000, () => {

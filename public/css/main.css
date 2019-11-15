@@ -109,3 +109,15 @@ form {
   padding: 10px;
   width: 130px;
 }
+.f-btn {
+  padding: 5px;
+}
+.form-group {
+  padding-left: 20px;
+}
+.btn-warning {
+  font-style: 5px;
+  padding: 2px;
+  margin-right: 5px;
+  color: whitesmoke;
+}
