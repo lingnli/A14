@@ -4,9 +4,14 @@ const mongoose = require("mongoose");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const Restaurant = require("./models/restaurant.js");
+const methodOverride = require("method-override");
+
+//method-override setting:當url有_method?=DELETE/PUT時觸發
+app.use(methodOverride("_method"));
 
 //static file
 app.use(express.static("public"));
+
 //handlebars setting
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -77,7 +82,7 @@ app.get("/restaurants/:id/edit", (req, res) => {
   });
 });
 //送出修改動作：修改後的資料存到Restaurant model中
-app.post("/restaurants/:id/edit", (req, res) => {
+app.put("/restaurants/:id", (req, res) => {
   console.log(req.body);
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.log(err);
@@ -96,7 +101,7 @@ app.post("/restaurants/:id/edit", (req, res) => {
   });
 });
 //刪除動作
-app.post("/restaurants/:id/delete", (req, res) => {
+app.delete("/restaurants/:id/delete", (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.log(err);
     restaurant.remove(err => {
