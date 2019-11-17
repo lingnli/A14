@@ -1,6 +1,6 @@
 # Restaurant List 「餐廳清單」
 
-- Alphacamp class 3 project:A10
+- Alphacamp class 3 project:A11
 - 使用 Node.js 及 Express 框架打造出的小網頁
 
 ## Environment Introduction 適用環境介紹
@@ -12,12 +12,13 @@ for windows , MacOS
 
 ## Web Page 網頁畫面
 
-![Image of indexpage](https://upload.cc/i1/2019/11/15/O2QhUW.png)
+![Image of indexpage](https://upload.cc/i1/2019/11/17/hrbSt7.png)
 
 ## Features 專案功能
 
 - 內建八個預設資料為推薦餐廳
 - 可以新增、修改、刪除餐廳資料
+- 新增搜尋及排序功能
 - 後續會增加登入系統 ，方便使用者管理
 
 ## Installation 安裝專案
@@ -25,7 +26,7 @@ for windows , MacOS
 1.從 github 下載 資料夾
 
 ```
-$ git clone https://github.com/lingnli/A10_restaurantCRUD
+$ git clone https://github.com/lingnli/A11_rebuildRestaurant
 ```
 
 2.開啟 Terminal，進入此專案資料夾
