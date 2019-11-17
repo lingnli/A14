@@ -19,8 +19,21 @@
 </div>
 
 <!-- add new restaurant -->
-<div class="mx-auto mt-5 mb-0" style="width: 200px;">
+<div class="mx-auto mt-5 mb-0" style="width: 300px;">
   <a href="/restaurants/new" class="btn btn-primary" style="width: 150px;">新增餐廳<i class="fas fa-plus-square"></i></a>
+
+  <div class="dropdown ml-3" style="display: inline;">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      排序
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="/sort/name-asc">依名稱排序：A->Z</a>
+      <a class="dropdown-item" href="/sort/name-desc">依名稱排序：Z->A</a>
+      <a class="dropdown-item" href="/sort/rating-desc">依評分排序：5->1</a>
+      <a class="dropdown-item" href="/sort/rating-asc">依評分排序：1->5</a>
+    </div>
+  </div>
 </div>
 
 <!-- restaurant list -->
