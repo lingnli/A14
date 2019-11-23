@@ -34,10 +34,12 @@ db.once("open", () => {
 });
 
 //route:將router分出去
-app.use("/", require("./routes/home"));
 //當路由結尾是/時，去./routes/home找相關路由
+app.use("/", require("./routes/home"));
+//當路由結尾是/restaurants時，去./routes/restaurants找相關路由
 app.use("/restaurants", require("./routes/restaurants"));
-//當路由結尾是/restaurants時，去./routes/home找相關路由
+//登入、註冊、登出路由
+app.use("/users", require("./routes/user"));
 
 app.listen(3000, () => {
   console.log("Restaurant List App is running!");

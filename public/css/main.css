@@ -121,3 +121,26 @@ form {
   margin-right: 5px;
   color: whitesmoke;
 }
+/*login*/
+.login,
+.register {
+  margin-top: -300px;
+  background-color: rgb(192, 220, 228);
+  border-radius: 10px;
+  width: 500px;
+  height: 360px;
+  padding: 20px;
+}
+.form-control {
+  width: 344px;
+}
+.btn-login {
+  background-color: #4592af;
+}
+.btn-login:hover {
+  background-color: #226089;
+}
+/*register*/
+.register {
+  height: 560px;
+}
