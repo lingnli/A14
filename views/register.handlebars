@@ -4,31 +4,36 @@
       src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png" width="30"
       height="30" class="d-inline-block align-top mr-3" alt="我的餐廳清單">Register</h3>
 
-  <div class="right p-3">
-    <form>
+  <div class="right p-3 ml-3">
 
+    <form action="/users/register" method="POST">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="name" class="form-control" id="name" placeholder="Enter name">
+        <input type="name" name="name" class="form-control" id="name" placeholder="Enter name"
+          value="{{#if name}}{{name}}{{/if}}">
       </div>
 
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp"
+          placeholder="Enter name" value="{{#if email}}{{email}}{{/if}}">
       </div>
 
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
+        <input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
       </div>
 
       <div class="form-group">
-        <label for="password2">Password</label>
-        <input type="password" class="form-control" id="password2" placeholder="Enter password again">
+        <label for="password2">Comfirm Password</label>
+        <input type="password" name="password2" class="form-control" id="password2" placeholder="Enter password again">
       </div>
 
       <button type="submit" class="btn-login border-0 btn btn-block btn-primary ml-4 mt-4 ">Register</button>
+
       <p class="ml-4 mt-3">Have an account?<a href="/users/login"> Login</a> </p>
+
     </form>
+
   </div>
 </div>
