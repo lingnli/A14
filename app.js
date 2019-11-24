@@ -9,6 +9,10 @@ const router = express.Router();
 const session = require("express-session");
 const passport = require("passport");
 
+//env setting
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 //session setting
 app.use(
   session({
@@ -67,6 +71,8 @@ app.use("/", require("./routes/home"));
 app.use("/restaurants", require("./routes/restaurants"));
 //登入、註冊、登出路由
 app.use("/users", require("./routes/user"));
+//facebook strategy路由
+app.use("/auth", require("./routes/auths"));
 
 app.listen(3000, () => {
   console.log("Restaurant List App is running!");
