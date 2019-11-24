@@ -6,6 +6,17 @@ const bodyParser = require("body-parser");
 const Restaurant = require("./models/restaurant.js");
 const methodOverride = require("method-override");
 const router = express.Router();
+const session = require("express-session");
+
+//sessiongk setting
+app.use(
+  session({
+    secret: "mySecretKey",
+    resave: false, //每次跟server互動都更新session=>沒必要 false
+    saveUninitialized: true, //將新的session存到session store
+    cookie: { secure: true }
+  })
+);
 
 //method-override setting:當url有_method?=DELETE/PUT時觸發
 app.use(methodOverride("_method"));
