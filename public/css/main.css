@@ -134,13 +134,15 @@ form {
 .form-control {
   width: 344px;
 }
-.btn-login {
+.btn-login,
+.out {
   background-color: #4592af;
 }
-.btn-login:hover {
+.btn-login,
+.out:hover {
   background-color: #226089;
 }
 /*register*/
 .register {
-  height: 560px;
+  height: 535px;
 }

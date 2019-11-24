@@ -55,6 +55,7 @@ require("./config/passport")(passport);
 app.use((req, res, next) => {
   //成功登入回傳的user
   res.locals.user = req.user;
+  res.locals.isAuthenticated = req.isAuthenticated();
   next();
 });
 

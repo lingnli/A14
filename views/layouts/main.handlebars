@@ -22,6 +22,9 @@
             width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
           NI's餐廳清單
         </a>
+        {{#if isAuthenticated}}
+        <a href="/users/logout" class="out border-0 btn btn-primary">Logout</a>
+        {{/if}}
       </div>
     </nav>
 
