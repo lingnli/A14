@@ -1,6 +1,6 @@
 # Restaurant List 「餐廳清單」
 
-- Alphacamp class 3 project:A11
+- AlphaCamp class 3 project:A14
 - 使用 Node.js 及 Express 框架打造出的小網頁
 
 ## Environment Introduction 適用環境介紹
@@ -18,15 +18,15 @@ for windows , MacOS
 
 - 內建二個種子使用者，各自含三筆種子餐廳資料
   | 種子帳號 | email | password |
-  | ---------- | :-----------: | :-----------: |
+  --------------|-------|------|
   | no.1 | user1@example.com | 12345678 |
   | no.2 | user2@example.com | 12345678 |
 
-- 使用者可以建立帳號去管理資料
-- 使用者可以使用第三方登入 Facebook 去建立帳號
-- 可以新增、修改、刪除餐廳資料
-- 使用可以可搜尋餐廳
-- 使用者可以依照名稱或評分來顯示帳號內所有餐廳資料
+* 使用者可以建立帳號去管理資料
+* 使用者可以使用第三方登入 Facebook 去建立帳號
+* 可以新增、修改、刪除餐廳資料
+* 使用可以可搜尋餐廳
+* 使用者可以依照名稱或評分來顯示帳號內所有餐廳資料
 
 ## Installation 安裝專案
 
