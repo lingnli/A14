@@ -131,14 +131,14 @@ form {
   height: 360px;
   padding: 20px;
 }
-.form-control {
+.log {
   width: 344px;
 }
 .btn-login,
 .out {
   background-color: #4592af;
 }
-.btn-login,
+.btn-login:hover,
 .out:hover {
   background-color: #226089;
 }

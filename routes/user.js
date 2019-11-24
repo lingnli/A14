@@ -4,6 +4,8 @@ const router = express.Router();
 //載入User Model
 const User = require("../models/user");
 const passport = require("passport");
+//載入bcrypt
+const bcrypt = require("bcrypt");
 
 //login
 router.get("/login", (req, res) => {
@@ -38,12 +40,18 @@ router.post("/register", (req, res) => {
         email,
         password
       });
-      newUser
-        .save()
-        .then(user => {
-          res.redirect("/");
-        })
-        .catch(err => console.log(err));
+      //bcrypt加密password=>passport認證也要修改
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+          newUser.password = hash;
+          newUser
+            .save()
+            .then(user => {
+              res.redirect("/");
+            })
+            .catch(err => console.log(err));
+        });
+      });
     }
   });
 });

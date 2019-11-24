@@ -34,7 +34,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //mongoose setting
 mongoose.connect("mongodb://localhost/restaurant", {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useCreateIndex: true
 });
 const db = mongoose.connection;
 db.on("error", () => {
