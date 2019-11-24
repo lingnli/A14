@@ -17,6 +17,7 @@ for windows , MacOS
 ## Features 專案功能
 
 - 內建二個種子使用者，各自含三筆種子餐廳資料
+
   | 種子帳號 | email | password |
   --------------|-------|------|
   | no.1 | user1@example.com | 12345678 |
