@@ -126,9 +126,10 @@ form {
 .register {
   margin-top: -300px;
   background-color: rgb(192, 220, 228);
+  box-shadow: 10px 10px 5px #888888;
   border-radius: 10px;
   width: 500px;
-  height: 400px;
+  height: 470px;
   padding: 20px;
 }
 .fab {
@@ -137,7 +138,8 @@ form {
 .fb {
   margin-left: 100px;
 }
-.log {
+.log,
+.alert {
   width: 344px;
 }
 .btn-login,
@@ -150,5 +152,5 @@ form {
 }
 /*register*/
 .register {
-  height: 535px;
+  height: 645px;
 }

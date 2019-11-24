@@ -5,6 +5,8 @@
       height="30" class="d-inline-block align-top mr-3" alt="我的餐廳清單">Login</h3>
 
   <div class="right p-3">
+    <!--使用/views/partials/msg.handlebars-->
+    {{>msg}}
     <form action="/users/login" method="POST">
       <div class="form-group">
         <label for="email">Email</label>

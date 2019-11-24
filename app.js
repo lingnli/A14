@@ -8,6 +8,10 @@ const methodOverride = require("method-override");
 const router = express.Router();
 const session = require("express-session");
 const passport = require("passport");
+const flash = require("connect-flash");
+
+//connect-flash setting
+app.use(flash());
 
 //env setting
 if (process.env.NODE_ENV !== "production") {
@@ -57,10 +61,13 @@ app.use(passport.session());
 //載入config/passport.js
 require("./config/passport")(passport);
 //前面已宣告過passport，把passport丟到config/passport.js中做使用
+//res的locals屬性，可以把值傳到views中使用
 app.use((req, res, next) => {
   //成功登入回傳的user
   res.locals.user = req.user;
   res.locals.isAuthenticated = req.isAuthenticated();
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.warning_msg = req.flash("warning_msg");
   next();
 });
 

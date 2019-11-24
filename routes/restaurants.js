@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Restaurant = require("../models/restaurant");
-const { authenticated } = require("../config/auth");
+const { authenticated } = require("../config/auth.js");
 
 router.get("/", authenticated, (req, res) => {
   res.redirect("/");
