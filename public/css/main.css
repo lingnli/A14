@@ -128,8 +128,14 @@ form {
   background-color: rgb(192, 220, 228);
   border-radius: 10px;
   width: 500px;
-  height: 360px;
+  height: 400px;
   padding: 20px;
+}
+.fab {
+  font-size: 30px;
+}
+.fb {
+  margin-left: 100px;
 }
 .log {
   width: 344px;
