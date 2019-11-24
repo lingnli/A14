@@ -1,6 +1,7 @@
 //設定passport middleware，來判斷各路由是否已登入
 const LocalStrategy = require("passport-local").Strategy;
 const mongoose = require("mongoose");
+// 載入 User model
 const User = require("../models/user");
 
 module.exports = passport => {

@@ -1,17 +1,18 @@
 const express = require("express");
 const router = express.Router();
 const Restaurant = require("../models/restaurant");
+const { authenticated } = require("../config/auth");
 
-router.get("/", (req, res) => {
+router.get("/", authenticated, (req, res) => {
   res.redirect("/");
 });
 
 //新增頁面需排在瀏覽詳細頁面之前，否則再連接到/restaurants/new之前會先跑到/restaurants/:id
 //新增
-router.get("/new", (req, res) => {
+router.get("/new", authenticated, (req, res) => {
   res.render("new");
 });
-router.post("/", (req, res) => {
+router.post("/", authenticated, (req, res) => {
   console.log(req.body);
   const restaurant = new Restaurant({
     name: req.body.name,
@@ -29,7 +30,7 @@ router.post("/", (req, res) => {
 });
 
 //瀏覽詳細
-router.get("/:id", (req, res) => {
+router.get("/:id", authenticated, (req, res) => {
   console.log(req.params.id);
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.log(err);
@@ -38,14 +39,14 @@ router.get("/:id", (req, res) => {
   });
 });
 //修改：get 取得要修改的資料丟到修改頁面
-router.get("/:id/edit", (req, res) => {
+router.get("/:id/edit", authenticated, (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.log(err);
     return res.render("edit", { restaurant });
   });
 });
 //送出修改動作：修改後的資料存到Restaurant model中
-router.put("/:id", (req, res) => {
+router.put("/:id", authenticated, (req, res) => {
   console.log(req.body);
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.log(err);
@@ -64,7 +65,7 @@ router.put("/:id", (req, res) => {
   });
 });
 //刪除動作
-router.delete("/:id/delete", (req, res) => {
+router.delete("/:id/delete", authenticated, (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.log(err);
     restaurant.remove(err => {

@@ -14,8 +14,7 @@ app.use(
   session({
     secret: "mySecretKey",
     resave: false, //每次跟server互動都更新session=>沒必要 false
-    saveUninitialized: true, //將新的session存到session store
-    cookie: { secure: true }
+    saveUninitialized: true //將新的session存到session store
   })
 );
 

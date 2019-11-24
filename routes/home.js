@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const Restaurant = require("../models/restaurant");
+//載入auth middleware的方法
+const { authenticated } = require("../config/auth");
 
-router.get("/", (req, res) => {
+router.get("/", authenticated, (req, res) => {
   Restaurant.find((err, restaurants) => {
     if (err) return console.log(err);
     res.render("index", { restaurants });
