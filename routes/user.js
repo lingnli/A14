@@ -3,13 +3,20 @@ const express = require("express");
 const router = express.Router();
 //載入User Model
 const User = require("../models/user");
+const passport = require("passport");
 
 //login
 router.get("/login", (req, res) => {
   res.render("login");
 });
-router.post("/login", (req, res) => {
-  res.send("login action");
+//執行login action
+router.post("/login", (req, res, next) => {
+  console.log(req.body);
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/users/login",
+    failureFlash: true
+  })(req, res, next);
 });
 
 //register

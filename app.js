@@ -7,8 +7,9 @@ const Restaurant = require("./models/restaurant.js");
 const methodOverride = require("method-override");
 const router = express.Router();
 const session = require("express-session");
+const passport = require("passport");
 
-//sessiongk setting
+//session setting
 app.use(
   session({
     secret: "mySecretKey",
@@ -42,6 +43,20 @@ db.on("error", () => {
 });
 db.once("open", () => {
   console.log("mongodb connected!");
+});
+
+//passport setting
+app.use(passport.initialize());
+//有使用session則須加設定passport.session()，需設定在app.use(session())之後
+app.use(passport.session());
+
+//載入config/passport.js
+require("./config/passport")(passport);
+//前面已宣告過passport，把passport丟到config/passport.js中做使用
+app.use((req, res, next) => {
+  //成功登入回傳的user
+  res.locals.user = req.user;
+  next();
 });
 
 //route:將router分出去
